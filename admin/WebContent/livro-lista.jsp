@@ -66,6 +66,13 @@
                                 <div class="table-responsive">
                                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                         <thead>
+                                        	<th>id</th>
+                                                <th>Título</th>
+                                                <th>Autor</th>
+                                                <th>ISBN</th>
+                                                <th>Preço</th>
+                                                <th>Ações</th>
+
                                             <c:forEach items="${Livros}" var="liv" varStatus="loopStatus">
                                                 <tr>
                                                 <td>${liv.id}</td>
@@ -73,6 +80,14 @@
                                                 <td>${liv.autor}</td>
                                                 <td>${liv.isbn}</td>
                                                 <td>${liv.preco}</td>
+                                                <td>
+                                                	<a href="/admin/livro/editar?id=${liv.id}">
+														<i class="fas fa-edit" aria-hidden="true"></i>
+													</a>
+													<a href="#" class="deleta" id="${cli.id}">
+														<i class="fa fa-trash" aria-hidden="true"> </i>
+													</a>
+                                                </td>
                                                 </tr>
                                                 </c:forEach>
                                        </thead>

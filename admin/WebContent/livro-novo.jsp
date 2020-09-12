@@ -84,6 +84,8 @@
                             <div class="card-header"><i class="fas fa-table mr-1"></i>Novo Livro</div>
                             <div class="card-body">
                                 <form method="post" action="/admin/livro/novo" >
+                                    <input type="hidden" name="id" value="${id}">
+                                    
                                             <div class="form-row">
                                                 <div class="col-md-6">
                                                     <div class="form-group">

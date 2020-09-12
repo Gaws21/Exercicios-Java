@@ -31,8 +31,7 @@ private static final long serialVersionUID = 1L;
 	
 	req.setAttribute("Livros", lista);
 	
-	RequestDispatcher rd =
-			req.getRequestDispatcher("/livro-lista.jsp");
+	RequestDispatcher rd = req.getRequestDispatcher("/livro-lista.jsp");
 	rd.forward(req, resp);
 	}
  }
