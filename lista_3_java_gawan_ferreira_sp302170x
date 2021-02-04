@@ -1,0 +1,231 @@
+package lista_lambda;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Random;
+import java.util.Scanner;
+import java.util.TreeMap;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+public class lista_3 {
+
+	public static void main(String[] args) {
+
+		
+		  List<Integer> lista_numeros = MostrarLista();
+		  MostrarDistintos(lista_numeros); MostrarImparesDistintos(lista_numeros);
+		  MostrarParesDistintos(lista_numeros); MostrarSkip5(lista_numeros);
+		  MostrarTodosVezes4(lista_numeros);
+		  
+		  Exercicio2();
+		  
+		  Exercicio3_gera_lista_100_aleatorio();
+		  
+		  
+		  List<Integer> lista_aleatoria_10 = Exercicio3_gera_lista_10_aleatorio();
+		  Exercicio3_maior_dos_10(lista_aleatoria_10);
+		  Exercicio3_menor_dos_10(lista_aleatoria_10);
+		  Exercicio3_count_dos_10(lista_aleatoria_10);
+		
+		List<String> lista_nomes = new ArrayList<>();
+		lista_nomes = Exercicio4();
+		Exercicio4_nome_com_p(lista_nomes);
+		Exercicio4_separado_tamanho(lista_nomes);
+		Exercicio4_groupingBy(lista_nomes);
+		Exercicio4_agrupado_tamanho(lista_nomes);
+	}
+
+	public static List<Integer> MostrarLista() {
+		Scanner tamanho_n = new Scanner(System.in); // Create a Scanner object
+		System.out.println("Qua o tamanho da lista ?");
+
+		String n_input = tamanho_n.nextLine(); // Read user input
+		Integer n_integer = Integer.valueOf(n_input);
+
+		List<Integer> input = Stream.iterate(1, n -> n + 1).limit(n_integer).collect(Collectors.toList());
+
+		List<Integer> lista1 = new ArrayList<>();
+
+		input.stream().forEach(n -> {
+			lista1.add(n);
+			lista1.add(n);
+		});
+
+		System.out.println("\n-----------LISTA TOTAL ----------\n");
+		lista1.forEach(System.out::print);
+
+		return lista1;
+
+	};
+
+	public static void MostrarDistintos(List<Integer> lista_numeros) {
+		System.out.println("\n-----------DISTINTOS ----------\n");
+
+		lista_numeros.stream().distinct() // ignora números iguais
+				.forEach(System.out::print);
+
+	};
+
+	public static void MostrarImparesDistintos(List<Integer> lista_numeros) {
+		System.out.println("\n-----------IMPARES DISTINTOS ----------\n");
+
+		lista_numeros.stream().filter(e -> e % 2 != 0) // mantém apenas números pares
+				.distinct() // ignora números iguais
+				.forEach(System.out::print);
+
+	};
+
+	public static void MostrarParesDistintos(List<Integer> lista_numeros) {
+		System.out.println("\n-----------IMPARES DISTINTOS ----------\n");
+
+		lista_numeros.stream().filter(e -> e % 2 == 0) // mantém apenas números pares
+				.distinct() // ignora números iguais
+				.forEach(System.out::print);
+
+	};
+
+	public static void MostrarSkip5(List<Integer> lista_numeros) {
+		System.out.println("\n-----------DISTINTOS SKIP 5----------\n");
+
+		lista_numeros.stream().distinct() // ignora números iguais
+				.skip(5).forEach(System.out::print);
+
+	};
+
+	public static void MostrarTodosVezes4(List<Integer> lista_numeros) {
+		System.out.println("\n----------- TODOS X4----------\n");
+
+		lista_numeros.stream().map(n -> n * 4).forEach(System.out::print);
+
+	};
+
+	public static void Exercicio2() {
+		System.out.println("\n----------- Exercicio 2----------\n");
+
+		List<Integer> input = Stream.iterate(0, n -> n + 1).limit(9).filter(e -> e % 2 == 0).skip(2).limit(2)
+				.map(e -> e * 2).collect(Collectors.toList());
+		input.stream().forEach(System.out::print);
+
+	};
+
+	public static void Exercicio3_gera_lista_100_aleatorio() {
+		System.out.println("\n----------- Exercicio 3 - 100 aleatorios----------\n");
+
+		Random random = new Random();
+
+		random.ints(100, 0, 100).forEach(System.out::println);
+
+	};
+
+	public static List<Integer> Exercicio3_gera_lista_10_aleatorio() {
+		System.out.println("\n----------- Exercicio 3 - 100 aleatorios----------\n");
+
+		List<Integer> lista1 = new ArrayList<>();
+
+		Random random = new Random();
+
+		random.ints(10, 0, 100).forEach(n -> lista1.add(n));
+
+		lista1.stream().forEach(System.out::println);
+
+		return lista1;
+
+	};
+
+	public static void Exercicio3_maior_dos_10(List<Integer> input) {
+		System.out.println("\n----------- Exercicio 3 - max----------\n");
+
+		Optional<Integer> max;
+		max = input.stream().max(Comparator.naturalOrder());
+
+		System.out.println(max.get());
+
+	};
+
+	public static void Exercicio3_menor_dos_10(List<Integer> input) {
+		System.out.println("\n----------- Exercicio 3 - min ----------\n");
+
+		Optional<Integer> min;
+		min = input.stream().min(Comparator.naturalOrder());
+
+		System.out.println(min.get());
+
+	};
+
+	public static void Exercicio3_count_dos_10(List<Integer> input) {
+		System.out.println("\n----------- Exercicio 3 - count ----------\n");
+
+		Long count;
+		count = input.stream().count();
+
+		System.out.println(count);
+
+	};
+
+	public static List<String> Exercicio4() {
+		System.out.println("\n----------- Exercicio 4-----------\n");
+
+		String[] strArray = { "Paulo", "Camila", "Ana Maria", "Patrik", "Ana Clara", "Pedro", "Alfredo" };
+
+		// initialize an immutable list from array using asList method
+		List<String> mylist = Arrays.asList(strArray);
+
+		mylist.stream().forEach(System.out::println);
+
+		return mylist;
+
+	};
+
+	public static void Exercicio4_nome_com_p(List<String> lista_nomes) {
+		System.out.println("\n----------- Exercicio 4 - Nome com P-----------\n");
+
+		lista_nomes.stream().filter(s -> s.toUpperCase().startsWith("P")).forEach(System.out::println);
+
+	};
+
+	public static void Exercicio4_separado_tamanho(List<String> lista_nomes) {
+		System.out.println("\n----------- Exercicio 4 - Separado por tamanho-----------\n");
+
+		lista_nomes.stream().forEach(n -> {
+			System.out.println(n + "-" + n.length() + "\n");
+		});
+	};
+
+	public static void Exercicio4_groupingBy(List<String> lista_nomes) {
+		System.out.println("\n----------- Exercicio4_groupingBy-----------\n");
+
+		Map<Object, List<String>> mapa = lista_nomes.stream()
+				.collect(Collectors.groupingBy(s -> s.toUpperCase().startsWith("A"))); // agrupa itens baseado no
+																						// resultado da comparação
+		System.out.println(mapa);
+	};
+
+	public static void Exercicio4_agrupado_tamanho(List<String> lista_nomes) {
+		System.out.println("\n----------- Exercicio 4 - agrupado por tamanho -----------\n");
+
+		/*
+		 * List<String> sortedList = lista_nomes .stream() .sorted()
+		 * .collect(Collectors.toList()); sortedList.forEach(System.out::println);
+		 */
+
+		/* UTILIZAR EXEMPLO DE COMPARAÇÃO POR TAMANHO DO ALURA */
+
+		Map<Integer, List<String>> lista_nomes1 = lista_nomes.stream().map(s -> s.toUpperCase())
+				.collect(Collectors.groupingBy(String::length));
+
+		System.out.println(lista_nomes1.values());
+
+		lista_nomes.forEach(s -> System.out.println(s));
+
+		lista_nomes1.values().forEach(s -> s.forEach(c1 -> System.out.println(c1)));
+
+	};
+
+}
