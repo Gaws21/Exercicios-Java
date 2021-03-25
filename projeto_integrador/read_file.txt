@@ -1,0 +1,16 @@
+2021-03-25 07:38:40 - Receita adicionada: R - Valor: 1.0
+2021-03-25 07:38:41 - Receita adicionada: R - Valor: 2.0
+2021-03-25 07:38:42 - Receita adicionada: R - Valor: 3.0
+2021-03-25 07:38:42 - Receita adicionada: R - Valor: 4.0
+2021-03-25 07:38:50 - Despesa adicionada: D - Valor: 1.0
+2021-03-25 07:38:50 - Despesa adicionada: D - Valor: 2.0
+2021-03-25 07:38:51 - Despesa adicionada: D - Valor: 3.0
+2021-03-25 07:38:52 - Despesa adicionada: D - Valor: 4.0
+2021-03-25 07:39:09 - Receita Editada - Nome: "R" Para: "RECEITA 1 EDITADA"
+2021-03-25 07:39:13 - Receita Editada - Valor: "2.0" Para: "111.0"
+2021-03-25 07:39:24 - Despesa Editada - Nome: "D" Para: "DESPESA 1 EDITADA"
+2021-03-25 07:39:28 - Despesa Editada - Valor: "2.0" Para: "222.0"
+2021-03-25 07:39:40 - Receita Deletada: R - Valor: 4.0
+2021-03-25 07:39:46 - Despesa Deletada: D - Valor: 4.0
+2021-03-25 07:40:12 - Todas receitas foram deletadas
+2021-03-25 07:40:17 - Todas despesas foram deletadas
